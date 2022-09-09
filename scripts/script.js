@@ -27,7 +27,12 @@ let progressFlag = false;
 let i = 0;
 tasksNumber.textContent = `Tasks: ${i}`
 
-newTaskBtn.addEventListener('click', () => {
+newTaskBtn.addEventListener('click', () => createTask());
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') createTask()
+})
+
+function createTask() {
     if (newTaskInput.value !== '') {
         if (!doneFlag) i++;
         let newTask = document.createElement('div');
@@ -184,4 +189,4 @@ newTaskBtn.addEventListener('click', () => {
         }
 
     }
-});
+}
